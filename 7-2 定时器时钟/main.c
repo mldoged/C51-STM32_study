@@ -3,6 +3,7 @@
 #include "timer0.h"
 #include "lcd1602.h"
 unsigned char sec=55,min=59,hour=23;
+//一个划水
 void main() 
 {	
 	LCD_Init();
