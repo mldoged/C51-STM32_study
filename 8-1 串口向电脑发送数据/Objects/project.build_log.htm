@@ -24,13 +24,15 @@ Project File Date:  07/22/2023
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling main.c...
+main.c(2): warning C318: can't open file 'delay.h'
+main.c(11): error C202: 'OXFC': undefined identifier
+main.c(23): error C202: 'AUXR': undefined identifier
+main.c(24): error C202: 'AUXR': undefined identifier
+main.c(38): error C100: unprintable character 0xA3 skipped
+main.c(38): error C100: unprintable character 0xBB skipped
 compiling delay.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_DELAY?DELAY
-Program Size: data=9.0 xdata=0 code=38
-creating hex file from ".\Objects\project"...
-".\Objects\project" - 0 Error(s), 1 Warning(s).
+delay.c(1): error C318: can't open file 'delay.c'
+Target not created.
 </pre>
 </body>
 </html>
