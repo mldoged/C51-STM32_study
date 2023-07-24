@@ -29,7 +29,7 @@ void UartInit(void)		//9600bps@11.0592MHz
 	ET1 = 0;			//禁止定时器中断
 	TR1 = 1;			//定时器1开始计时
 }
-
+//sad
 
 void main()
 {
