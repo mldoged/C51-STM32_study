@@ -2,16 +2,21 @@
 #include "delay.h"
 #include "uart.h"
 
-unsigned char sec=0x01;
-
 void main()
 {
 	Uart_Init();
 
 	while(1)
 	{
-		Uart_sendbyte(sec);
-		delay(1000); 
-		sec++;
+		;
+	}
+}
+
+void Uart_routine() interrupt 4
+{
+	if(RI==1)
+	{
+		P2=SBUF;
+		RI=0;
 	}
 }
