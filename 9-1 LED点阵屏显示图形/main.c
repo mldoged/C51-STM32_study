@@ -25,6 +25,6 @@ void main()
 	_74HC595_writebyte(0xaa);
 	while(1)
 	{
-		
+		//20230821≈¿…Ω
 	}
 }
