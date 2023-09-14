@@ -1,6 +1,6 @@
 #include <REGX52.H>
 #include "delay.h"
-
+//¹ÖÌ¸Íæ¼Ò
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
