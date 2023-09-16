@@ -2,6 +2,7 @@
 #include "delay.h"
 //怪谈玩家
 //开始
+//9.16
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
