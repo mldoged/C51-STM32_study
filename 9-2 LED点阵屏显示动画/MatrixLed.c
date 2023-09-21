@@ -6,10 +6,12 @@
 //9.17
 //9.20 µ¡¶è
 //9.21 µ°×ÐÅÉ¶Ô
+//
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
 sbit RCK=P3^5;	//RCLK
+sbit RCK=P3^5;
 
 
 /**
