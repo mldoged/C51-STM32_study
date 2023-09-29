@@ -7,7 +7,7 @@
 //9.20 ╣║╤Х
 //9.21 ╣╟впеи╤т
 //9.27 ╣╟впеи╤т
-//
+//9.28 ╣╟впюгхки╠
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
