@@ -9,6 +9,7 @@
 //9.27 蛋仔派对
 //9.28 蛋仔狼人杀
 //9.30 蛋仔狼人杀
+//10.2 英雄联盟
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
