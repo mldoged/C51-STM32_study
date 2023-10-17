@@ -12,6 +12,7 @@
 //10.2 英雄联盟
 //10.5 英雄联盟
 //10.17 永夜君王
+//10.18 永夜君王
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
