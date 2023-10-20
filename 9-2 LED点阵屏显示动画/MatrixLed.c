@@ -14,6 +14,7 @@
 //10.17 ำภานพýอ๕
 //10.18 ำภานพýอ๕
 //10.19 ำภานพýอ๕
+//10.20 ำภานพýอ๕
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
