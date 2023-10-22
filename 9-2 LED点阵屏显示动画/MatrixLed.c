@@ -16,6 +16,7 @@
 //10.19 永夜君王
 //10.20 永夜君王
 //10.21 休息
+//10.22 去宾馆
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
