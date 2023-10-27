@@ -19,6 +19,7 @@
 //10.22 È¥±ö¹İ
 //10.24 ÒìĞÎ
 //10.26 redmipad
+//10.27 redmipad
 #define matrix_led_port P0
 sbit SER=P3^4;	
 sbit SCK=P3^6;	//SRCLK
