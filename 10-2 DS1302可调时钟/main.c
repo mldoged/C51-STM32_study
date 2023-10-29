@@ -124,7 +124,10 @@ void main()
 		if(Keynum==1)
 		{
 			if(MODE==0)
+			{
 				MODE=1;
+				Timesetselect=0;
+			}
 			else if(MODE==1)
 			{
 				MODE=0;
