@@ -1,0 +1,121 @@
+C51 COMPILER V9.54   MAIN                                                                  10/31/2023 06:28:16 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: S:\Keil5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.l
+                    -st) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "timer0.h"
+   3          #include "delay.h"
+   4          
+   5          //Òô·ûÓëÆµÂÊ¶ÔÓ¦
+   6          #define P   0
+   7          #define L1  1
+   8          #define L1_ 2
+   9          #define L2  3
+  10          #define L2_ 4
+  11          #define L3  5
+  12          #define L4  6
+  13          #define L4_ 7
+  14          #define L5  8
+  15          #define L5_ 9
+  16          #define L6  10
+  17          #define L6_ 11
+  18          #define L7  12
+  19          #define M1  13
+  20          #define M1_ 14
+  21          #define M2  15
+  22          #define M2_ 16
+  23          #define M3  17
+  24          #define M4  18
+  25          #define M4_ 19
+  26          #define M5  20
+  27          #define M5_ 21
+  28          #define M6  22
+  29          #define M6_ 23
+  30          #define M7  24
+  31          #define H1  25
+  32          #define H1_ 26
+  33          #define H2  27
+  34          #define H2_ 28
+  35          #define H3  29
+  36          #define H4  30
+  37          #define H4_ 31
+  38          #define H5  32
+  39          #define H5_ 33
+  40          #define H6  34
+  41          #define H6_ 35
+  42          #define H7  36 
+  43          
+  44          sbit Buzzer=P2^5;
+  45          unsigned int FreqTable[]=
+  46                  {0,                                                                                                                             //ÐÝÖ¹·û
+  47                   63628,63731,63835,63928,64021,64103,64185,64260,64331,64400,64463,64528,
+  48                   64580,64633,64684,64732,64777,64820,64860,64898,64934,64968,65000,65030,
+  49                   65058,65085,65110,65134,65157,65178,65198,65217,65235,65252,65268,65283};
+  50          
+  51          unsigned char Music1[]={13,4,13,4,20,4,20,4,22,4,22,4,20,8,//Ð¡ÐÇÐÇ
+  52                                                     18,4,18,4,17,4,17,4,15,4,15,4,13,8,0xff};
+  53          
+  54          unsigned char code Music2[]={
+C51 COMPILER V9.54   MAIN                                                                  10/31/2023 06:28:16 PAGE 2   
+
+  55          P,4,P,4,P,4,M6,2,
+  56          M6,2,H1,6,M7,2,H1,4,
+  57          H3,4,M7,12,M3,2,M3,2,
+  58          0
+  59          };                                        
+  60                   
+  61          unsigned char FreqSelect,MusicSelect;
+  62          
+  63          void main()
+  64          {
+  65   1              timer0_init();
+  66   1              while(1)
+  67   1              {
+  68   2                      if(Music2[MusicSelect]!=0xff)
+  69   2                      {
+  70   3                      FreqSelect=Music2[MusicSelect];
+  71   3                      MusicSelect++;
+  72   3                      delay(125*Music2[MusicSelect]);
+  73   3                      MusicSelect++;
+  74   3                      TR0=0;
+  75   3                      delay(10);
+  76   3                      TR0=1;                  
+  77   3                      }
+  78   2                      else
+  79   2                      {
+  80   3                              TR0=0;
+  81   3                              while(1);
+  82   3                      }
+  83   2      
+  84   2              }
+  85   1      } 
+  86          
+  87          void t0_rountine() interrupt 1
+  88          {
+  89   1              if(FreqTable[FreqSelect])
+  90   1              {
+  91   2                      TL0 = FreqTable[FreqSelect]%256;                
+  92   2                      TH0 = FreqTable[FreqSelect]/256;        
+  93   2                      Buzzer=!Buzzer;
+  94   2              }
+  95   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    101    ----
+   CONSTANT SIZE    =     25    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =    105    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
