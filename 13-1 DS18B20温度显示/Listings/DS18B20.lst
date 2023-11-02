@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   DS18B20                                                               11/02/2023 07:17:10 PAGE 1   
+C51 COMPILER V9.54   DS18B20                                                               11/03/2023 05:19:32 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE DS18B20
@@ -10,40 +10,45 @@ line level    source
 
    1          #include <REGX52.H>
    2          #include "OneWire.h"
-   3          
-   4          #define DS18B20_Skip_ROM 0xCC
-   5          #define DS18B20_Convert_Tempera 0x44
-   6          #define DS18B20_Read_Scratchpad 0xBE
-   7          
-   8          void DS18B20_ConvertTempera(void)
-   9          {
-  10   1              OneWire_Init();
-  11   1              OneWire_SendByte(DS18B20_Skip_ROM);
-  12   1              OneWire_SendByte(DS18B20_Convert_Tempera);      
-  13   1      }
-  14          
-  15          float DS18B20_Read_Tempera(void)
-  16          {
-  17   1              unsigned char TLSB,TMSB;
-  18   1              int temp;
-  19   1              float T;
-  20   1              OneWire_Init();
-  21   1              OneWire_SendByte(DS18B20_Skip_ROM);
-  22   1              OneWire_SendByte(DS18B20_Read_Scratchpad);      
-  23   1              TLSB=OneWire_ReceiveByte();
-  24   1              TMSB=OneWire_ReceiveByte();
-  25   1              temp=(TLSB<<8)|TLSB;
-  26   1              T=temp/16.0;
-  27   1              return T;
-  28   1      }
+   3          #include "LCD1602.h"
+   4          
+   5          #define DS18B20_Skip_ROM 0xCC
+   6          #define DS18B20_Convert_Tempera 0x44
+   7          #define DS18B20_Read_Scratchpad 0xBE
+   8          
+   9          void DS18B20_ConvertTempera(void)
+  10          {
+  11   1              OneWire_Init();
+  12   1              OneWire_SendByte(DS18B20_Skip_ROM);
+  13   1              OneWire_SendByte(DS18B20_Convert_Tempera);      
+  14   1      }
+  15          
+  16          float DS18B20_Read_Tempera(void)
+  17          {
+  18   1              unsigned char TLSB,TMSB;
+  19   1              int temp;
+  20   1              float T;
+  21   1              OneWire_Init();
+  22   1              OneWire_SendByte(DS18B20_Skip_ROM);
+  23   1              OneWire_SendByte(DS18B20_Read_Scratchpad);      
+  24   1              TLSB=OneWire_ReceiveByte();
+  25   1              TMSB=OneWire_ReceiveByte();
+  26   1              
+  27   1      //      LCD_ShowBinNum(1,1,TMSB,8);温度数据二进制测试
+  28   1      //      LCD_ShowBinNum(1,9,TLSB,8);     
+  29   1              
+  30   1              temp=(TMSB<<8)|TLSB;
+  31   1              T=temp/16.0;
+  32   1              return T;
+  33   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     56    ----
+   CODE SIZE        =     57    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       2
+   DATA SIZE        =   ----       1
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
