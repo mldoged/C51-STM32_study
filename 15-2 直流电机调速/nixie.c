@@ -1,17 +1,9 @@
 #include <REGX52.H>
 #include "delay.h"
 
-unsigned char Nixie_Buffer[9]={0,10,10,10,10,10,10,10,10};
-unsigned char Nixie_Numnum[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x00,0x40};
-
-void Nixie_SetBuf(unsigned char location,num)//修改Buffer中的值
+unsigned char numnum[]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
+void nixie(unsigned char location,num)
 {
-	Nixie_Buffer[location]=num;
-}
-
-void Nixie_Scan(unsigned char location,num)//扫描显示
-{
-	P0=0x00;//消隐
 	switch(location)
 	{
 		case 1:
@@ -31,13 +23,7 @@ void Nixie_Scan(unsigned char location,num)//扫描显示
 		case 8:
 			P2_4=0;P2_3=0;P2_2=0;break;
 	}
-	P0=Nixie_Numnum[num];
-}
-
-void Nixie_Loop(void)
-{
-	static unsigned char i=1;
-	Nixie_Scan(i,Nixie_Buffer[i]);
-	i++;
-	if(i>9){i=1;}
+	P0=numnum[num];
+	delay(1);
+	P0=0x00;//消隐
 }

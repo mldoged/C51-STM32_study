@@ -379,16 +379,6 @@
               <FilePath>.\delay.h</FilePath>
             </File>
             <File>
-              <FileName>key.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\key.c</FilePath>
-            </File>
-            <File>
-              <FileName>key.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\key.h</FilePath>
-            </File>
-            <File>
               <FileName>timer0.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\timer0.c</FilePath>
@@ -399,14 +389,24 @@
               <FilePath>.\timer0.h</FilePath>
             </File>
             <File>
-              <FileName>nixie.h</FileName>
+              <FileName>key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\key.c</FilePath>
+            </File>
+            <File>
+              <FileName>key.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\nixie.h</FilePath>
+              <FilePath>.\key.h</FilePath>
             </File>
             <File>
               <FileName>nixie.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\nixie.c</FilePath>
+            </File>
+            <File>
+              <FileName>nixie.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\nixie.h</FilePath>
             </File>
           </Files>
         </Group>
