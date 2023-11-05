@@ -1,0 +1,7 @@
+#include <REGX52.H>
+
+sbit XPT2046_CS=P3^5;
+sbit XPT2046_DCLK=P3^6;
+sbit XPT2046_DIN=P3^4;
+sbit XPT2046_DOUT=P3^7;
+
