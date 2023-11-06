@@ -1,0 +1,64 @@
+C51 COMPILER V9.54   MAIN                                                                  11/07/2023 05:47:11 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: S:\Keil5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.l
+                    -st) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "LCD1602.h"
+   3          #include "delay.h"
+   4          #include "IR.h"
+   5          
+   6          unsigned char Num;
+   7          unsigned char Address;
+   8          unsigned char Command;
+   9          unsigned char Num;
+  10          
+  11          void main()
+  12          {
+  13   1              LCD_Init();
+  14   1              IR_Init();
+  15   1              LCD_ShowString(1,1,"ADD  COM  NUM");
+  16   1              LCD_ShowString(2,1,"00   00   000");
+  17   1              while(1)
+  18   1              {
+  19   2                      if(IR_GetDataFlag() || IR_GetRepeatFlag())
+  20   2                      {
+  21   3                              Address=IR_GetAddress();
+  22   3                              Command=IR_GetCommand();
+  23   3                              
+  24   3                              LCD_ShowHexNum(2,1,Address,2);
+  25   3                              LCD_ShowHexNum(2,6,Command,2);
+  26   3                              
+  27   3                              if(Command==0x18)//2
+  28   3                              {
+  29   4                                      Num--;
+  30   4                              }
+  31   3                              else if(Command==0x5E)//3
+  32   3                              {
+  33   4                                      Num++;
+  34   4                              }
+  35   3                              LCD_ShowHexNum(2,11,Num,3);
+  36   3                      }
+  37   2              }
+  38   1      }
+  39          
+  40          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    117    ----
+   CONSTANT SIZE    =     28    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

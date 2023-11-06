@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  11/06/2023 07:38:54 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  11/07/2023 01:26:09 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -13,23 +13,31 @@ line level    source
    3          #include "delay.h"
    4          #include "XPT2046.h"
    5          
-   6          void main()
-   7          {
-   8   1              LCD_Init();
-   9   1              LCD_ShowString(1,1,"ADJ");
-  10   1              while(1)
-  11   1              {
-  12   2                      
-  13   2              }
-  14   1      }
+   6          unsigned int ADValue;
+   7          
+   8          void main()
+   9          {
+  10   1              LCD_Init();
+  11   1              LCD_ShowString(1,1,"ADJ  NTC   RG");
+  12   1              while(1)
+  13   1              {
+  14   2                      ADValue=XPT2046_ReadValue(XPT2046_XP8);
+  15   2                      LCD_ShowNum(2,1,ADValue,4);
+  16   2                      ADValue=XPT2046_ReadValue(XPT2046_YP8);
+  17   2                      LCD_ShowNum(2,6,ADValue,3);
+  18   2                      ADValue=XPT2046_ReadValue(XPT2046_VBAT8);
+  19   2                      LCD_ShowNum(2,11,ADValue,3);
+  20   2                      delay(10);
+  21   2              }
+  22   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     18    ----
-   CONSTANT SIZE    =      4    ----
+   CODE SIZE        =     94    ----
+   CONSTANT SIZE    =     14    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----    ----
+   DATA SIZE        =      2    ----
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
