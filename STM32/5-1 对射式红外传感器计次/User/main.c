@@ -6,11 +6,12 @@
 int main(void)
 {
 	OLED_Init();
-	OLED_ShowString(1,3,"Hello World");
+	CountSensorInit();
+	OLED_ShowString(1,1,"Count:");
+	
 	//OLED_Clear();
 	while(1)
 	{
-	
-		
+		OLED_ShowNum(1,7,CountSensor_Get(),3);
 	}
 }
