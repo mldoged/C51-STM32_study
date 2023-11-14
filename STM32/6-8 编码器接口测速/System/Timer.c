@@ -31,7 +31,7 @@ void Timer_Init(void)
 }
 
 //模板
-//void TIM2_IRQHandler(void)
+//void TIM2_IRQHandler(void)//一秒一中断
 //{
 //	if(TIM_GetITStatus(TIM2,TIM_IT_Update) == SET)
 //	{

@@ -41,5 +41,8 @@ void Encoder_Init(void)
 
 int16_t Encoder_Get(void)
 {
-	return TIM_GetCounter(TIM3);
+	int16_t temp;
+	temp = TIM_GetCounter(TIM3);
+	TIM_SetCounter(TIM3,0);
+	return temp;
 }
