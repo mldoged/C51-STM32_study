@@ -3,7 +3,7 @@
 #include "OLED.h"
 #include "AD.h"
 
-int main(void)//2023.11.24¡¢25 MISS 
+int main(void)//2023.11.24¡¢25¡¢26 MISS 
 {
 	OLED_Init();
 	AD_Init();
